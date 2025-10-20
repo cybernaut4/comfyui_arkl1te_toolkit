@@ -114,6 +114,11 @@ class GetNewFileIndex:
             }
         }
     
+    @classmethod
+    def IS_CHANGED(cls, **kwargs):
+        import random
+        return random.random()
+    
     RETURN_TYPES = ("INT",)
     DESCRIPTION = cleandoc(__doc__)
     FUNCTION = "countFilesWithExtension"
