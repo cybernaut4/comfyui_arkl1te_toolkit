@@ -13,6 +13,7 @@ app.registerExtension({
             node.setSize([180, 82]);
             node.color = "#312a23";
             node.bgcolor = "#533c31";
+            break;
         case "Concatenate":
             node.setSize([210, 130]);
             node.color = "#312a23";
