@@ -108,7 +108,7 @@ class CountFilesInDirectory:
         return {
             "required": {
                 "directory": ("STRING", {
-                    "default": "",
+                    "default": "video",
                     "file_select": "directory",
                 }),
                 "extension": ("STRING", {
@@ -133,7 +133,7 @@ class CountFilesInDirectory:
         new_directory = comfyui_root
         os_name = platform.system()
         
-        new_directory += "\\output\\" if os_name == "Windows" else "/output/" + directory
+        new_directory += "/output/" + directory
         
         if (os_name == "Windows"):
             new_directory = new_directory.replace("/", "\\")
@@ -141,9 +141,9 @@ class CountFilesInDirectory:
         extension = "." + extension.lower()
 
         try:
-            return (len([f for f in os.listdir(directory) if f.lower().endswith(extension)]),)
+            return (len([f for f in os.listdir(new_directory) if f.lower().endswith(extension)]),)
         except FileNotFoundError:
-            return 0
+            return (0,)
 
         
 

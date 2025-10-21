@@ -8,7 +8,7 @@ __all__ = [
 
 __author__ = """Arkl1te"""
 __email__ = "arkl1te@protonmail.com"
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 from .src.arkl1te_toolkit.nodes import NODE_CLASS_MAPPINGS
 from .src.arkl1te_toolkit.nodes import NODE_DISPLAY_NAME_MAPPINGS
