@@ -125,7 +125,7 @@ class CountFilesInDirectory:
     RETURN_TYPES = ("INT",)
     DESCRIPTION = cleandoc(__doc__)
     FUNCTION = "countFilesWithExtension"
-    CATEGORY = "Arkl1te's Toolkit/string"
+    CATEGORY = "Arkl1te's Toolkit/int"
 
     def countFilesWithExtension(self, directory, extension):
         comfyui_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
