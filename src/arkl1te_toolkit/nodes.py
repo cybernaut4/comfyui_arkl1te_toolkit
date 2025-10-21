@@ -1,6 +1,7 @@
 from inspect import cleandoc
 from comfy.comfy_types.node_typing import IO
 import os
+import platform
 
 class PadZeroes:
     """
@@ -86,18 +87,20 @@ class Concatenate:
 
 
     def concatenate(self, string_a, string_b, prefix, suffix):
-        concatenated = ""
         concatenated = prefix + string_a if prefix else string_a
-        concatenated = concatenated + string_b
+        concatenated += string_b
         if suffix:
-            concatenated = concatenated + suffix
+            concatenated += suffix
         
         return (concatenated,)
     
 
-class GetNewFileIndex:
+class CountFilesInDirectory:
     """
     Counts how many files with the **extension** are in the **directory**.
+    Formerly named: GetNewFileIndex
+    
+    NOTE: directory takes relative paths, with `outputs` acting as root.
     """
 
     @classmethod
@@ -126,11 +129,21 @@ class GetNewFileIndex:
 
     def countFilesWithExtension(self, directory, extension):
         comfyui_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
+        
+        new_directory = comfyui_root
+        os_name = platform.system()
+        
+        new_directory += "\\output\\" if os_name == "Windows" else "/output/" + directory
+        
+        if (os_name == "Windows"):
+            new_directory = new_directory.replace("/", "\\")
 
-        directory = (comfyui_root + "\\output\\" + directory.replace("/", "\\"))
         extension = "." + extension.lower()
 
-        return (len([f for f in os.listdir(directory) if f.lower().endswith(extension)]),)
+        try:
+            return (len([f for f in os.listdir(directory) if f.lower().endswith(extension)]),)
+        except FileNotFoundError:
+            return 0
 
         
 
@@ -138,12 +151,13 @@ NODE_CLASS_MAPPINGS = {
     "PadZeroes": PadZeroes,
     "AnythingToString": AnythingToString,
     "Concatenate": Concatenate,
-    "GetNewFileIndex": GetNewFileIndex,
+    "GetNewFileIndex": CountFilesInDirectory,
+    "CountFilesInDirectory": CountFilesInDirectory,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
     "PadZeroes": "Pad Zeroes",
     "AnythingToString": "Anything To String",
     "Concatenate": "Concatenate",
-    "GetNewFileIndex": "Get New File Index",
+    "CountFilesInDirectory": "Count Files In Directory",
 }
