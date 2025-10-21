@@ -1,13 +1,8 @@
 # Arkl1te's Toolkit
 
-A collection of custom nodes for ComfyUI by Arkl1te
-
-> [!NOTE]
-> This projected was created with a [cookiecutter](https://github.com/Comfy-Org/cookiecutter-comfy-extension) template. It helps you start writing custom nodes without worrying about the Python setup.
+A collection of convenient nodes for ComfyUI. Mainly for string operations.
 
 # Features
-
-A set of convenient nodes. Mainly for string operations.
 
 - String nodes:
     - PadZeroes
