@@ -2,6 +2,8 @@
 
 A collection of convenient nodes for ComfyUI. Mainly for string operations.
 
+![Screenshot of the nodes in this ComfyUI toolkit](img/nodes.png)
+
 ## Nodes
 
 - `STRING`:
