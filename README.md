@@ -4,12 +4,12 @@ A collection of convenient nodes for ComfyUI. Mainly for string operations.
 
 # Features
 
-- String nodes:
-    - PadZeroes
-    - AnythingToString
+- `STRING` nodes:
+    - Pad Zeroes
+    - Anything To String
     - Concatenate
-- Int nodes:
-    - GetNewFileIndex
+- `INT` nodes:
+    - Count Files In Directory
 
 ## Installation
 
