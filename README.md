@@ -2,13 +2,13 @@
 
 A collection of convenient nodes for ComfyUI. Mainly for string operations.
 
-# Features
+## Nodes
 
-- `STRING` nodes:
+- `STRING`:
     - Pad Zeroes
     - Anything To String
     - Concatenate
-- `INT` nodes:
+- `INT`:
     - Count Files In Directory
 
 ## Installation
